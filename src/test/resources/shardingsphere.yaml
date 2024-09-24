@@ -1,0 +1,11 @@
+databaseName: <MYSQL_DATABASE>
+mode:
+  type: Standalone
+  repository:
+    type: JDBC
+dataSources:
+  db:
+    dataSourceClassName: com.alibaba.druid.pool.DruidDataSource
+    url: <MYSQL_JDBC_URL>
+    username: <MYSQL_USER>
+    password: <MYSQL_PASSWORD>
