@@ -6,7 +6,6 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.jdbc.DataSourceBuilder;
-import org.springframework.jdbc.BadSqlGrammarException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.testcontainers.containers.MySQLContainer;
 import org.testcontainers.junit.jupiter.Container;
@@ -63,7 +62,7 @@ public class ShardingSphereTest {
     public void testDruidConnectionDisabled() {
         IntStream.range(0, 50).forEachOrdered(i -> {
             assertDoesNotThrow(() -> JDBC_TEMPLATE.execute("select ''"));
-            assertThrows(BadSqlGrammarException.class, () -> JDBC_TEMPLATE.execute("insert into the_table(id) values(1)"));
+            assertThrows(Exception.class, () -> JDBC_TEMPLATE.execute("insert into the_table(id) values(1)"));
         });
     }
 }

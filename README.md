@@ -6,10 +6,17 @@
 
 ```shell
 sdk install java 8.0.422-tem
-git clone git@github.com:linghengqian/shardingsphere-test.git
+sdk install java 22.0.2-graalce
+git clone git@github.com:apache/shardingsphere.git
+cd ./shardingsphere/
+sdk use java 22.0.2-graalce
+./mvnw clean install -Prelease -T1C -DskipTests
+cd ../
+
+git clone git@github.com:linghengqian/shardingsphere-test.git -b fail-test
 cd ./shardingsphere-test/
 sdk use java 8.0.422-tem
-./mvnw -T 1C clean test 
+./mvnw -T 1C clean test
 ```
 
 - The unit tests execute fine.
