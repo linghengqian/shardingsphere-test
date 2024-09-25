@@ -2,6 +2,7 @@ package com.hulalaga;
 
 import com.zaxxer.hikari.HikariDataSource;
 import org.apache.shardingsphere.driver.ShardingSphereDriver;
+import org.apache.shardingsphere.infra.exception.kernel.metadata.TableNotFoundException;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -18,6 +19,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.nullValue;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @SuppressWarnings({"SqlNoDataSourceInspection", "resource"})
 @Testcontainers
@@ -60,6 +62,7 @@ public class ShardingSphereTest {
         IntStream.range(0, 50).forEachOrdered(i -> {
             assertDoesNotThrow(() -> JDBC_TEMPLATE.execute("select ''"));
             assertDoesNotThrow(() -> JDBC_TEMPLATE.execute("insert into the_table(id) values(1)"));
+            assertThrows(TableNotFoundException.class, () -> JDBC_TEMPLATE.execute("INSERT INTO t_order_item_does_not_exist (test_id_does_not_exist) VALUES (2024)"));
         });
     }
 }

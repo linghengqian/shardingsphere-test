@@ -15,7 +15,7 @@ sdk use java 8.0.422-tem
 - The unit tests execute fine.
 
 ```shell
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 14.55 s -- in com.hulalaga.ShardingSphereTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 13.55 s -- in com.hulalaga.ShardingSphereTest
 [INFO] 
 [INFO] Results:
 [INFO] 
@@ -24,7 +24,7 @@ sdk use java 8.0.422-tem
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  16.956 s
-[INFO] Finished at: 2024-09-25T12:06:17+08:00
+[INFO] Total time:  16.236 s (Wall Clock)
+[INFO] Finished at: 2024-09-25T12:25:36+08:00
 [INFO] ------------------------------------------------------------------------
 ```
