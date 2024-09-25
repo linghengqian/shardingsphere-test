@@ -1,4 +1,4 @@
-databaseName: <MYSQL_DATABASE>
+databaseName: $${fixture.mysql.db.databaseName::}
 mode:
   type: Standalone
   repository:
@@ -6,6 +6,11 @@ mode:
 dataSources:
   db:
     dataSourceClassName: com.alibaba.druid.pool.DruidDataSource
-    url: <MYSQL_JDBC_URL>
-    username: <MYSQL_USER>
-    password: <MYSQL_PASSWORD>
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: $${fixture.mysql.db.url::}
+    username: $${fixture.mysql.db.username::}
+    password: $${fixture.mysql.db.password::}
+rules:
+  - !SINGLE
+    tables:
+      - "*.*"
