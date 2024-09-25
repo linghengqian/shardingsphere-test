@@ -10,6 +10,7 @@ dataSources:
     url: $${fixture.mysql.db.url::}
     username: $${fixture.mysql.db.username::}
     password: $${fixture.mysql.db.password::}
+    closeConnOnFatalError: false
 rules:
   - !SINGLE
     tables:
