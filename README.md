@@ -8,7 +8,7 @@
 sdk install java 8.0.422-tem
 sdk install java 22.0.2-graalce
 git clone git@github.com:linghengqian/druid.git -b re-mysql
-cd ./shardingsphere/
+cd ./druid/
 sdk use java 22.0.2-graalce
 ./mvnw clean install -T1C -DskipTests
 cd ../
